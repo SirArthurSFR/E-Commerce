@@ -91,7 +91,7 @@ public class Main {
         produtos.add(new CPU("AMD Ryzen 9 9950X3D", 3999.99));
         produtos.add(new CPU("Intel i9-14900k", 2899.99));
 
-        int opcao = 0;
+        int opcao = 1;
 
         while (opcao !=4){
             System.out.println("Menu");
@@ -104,7 +104,7 @@ public class Main {
             switch (opcao){
                 case 1:
                     System.out.println("Catálogo: ");
-                    for (int i = 0; i <produtos.size();i++){
+                    for (int i = 1; i <produtos.size();i++){
                         System.out.println(i + " " + produtos.get(i));
                     }
                     break;
@@ -113,7 +113,7 @@ public class Main {
                     System.out.println("Digite o número do produto: ");
                     int escolha = scanner.nextInt();
 
-                    if (escolha >= 0 && escolha < produtos.size()) {
+                    if (escolha >= 1 && escolha < produtos.size()) {
                     carrinho.add(produtos.get(escolha));
                     System.out.println("Produto foi adicionado ao carrinho!");
                     } else {
