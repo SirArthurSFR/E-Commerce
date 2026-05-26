@@ -1,0 +1,207 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #2c3e50;
+    color: white;
+    font-family: sans-serif;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #3498db;
+}
+
+body {
+    margin: 0;
+    padding-top: 0;
+}
+
+.vitrine {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+.produto-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    width: 220px;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.produto-card img {
+    max-width: 100%;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.preco {
+    color: #27ae32;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.btn-comprar {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.btn-comprar:hover {
+    background-color: #3498db;
+}
+
+/* página de Login */
+.body-login {
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.login-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px;
+}
+
+.login-form h2 {
+    margin-bottom: 5px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.login-form p {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.btn-acessar {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn-acessar:hover {
+    background-color: #219150;
+}
+
+.login-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.login-footer a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+.search-box {
+    display: flex;
+    flex: 1;
+    max-width: 400px;
+    margin: 0 20px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-box button {
+    padding: 8px 12px;
+    background-color: #3498db;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+    transition: background 0.3s;
+}
+
+.search-box button:hover {
+    background-color: #2980b9;
+}
+
+@media (max-width: 600px) {
+    .search-box {
+        display: none;
+    }
+}
