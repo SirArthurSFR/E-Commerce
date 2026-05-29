@@ -71,6 +71,10 @@ body {
     justify-content: space-between;
 }
 
+.estoque {
+    color: red;
+}
+
 .produto-card img {
     max-width: 100%;
     height: 150px;
@@ -101,6 +105,12 @@ body {
 }
 
 /* página de Login */
+.botao-retornar{
+    margin-bottom: 5px;
+    color: #00bcdc;
+    text-align: center;
+    }
+
 .body-login {
     background-color: #f4f7f6;
     display: flex;
