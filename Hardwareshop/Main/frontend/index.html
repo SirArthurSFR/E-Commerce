@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <img src="imagens/hardforce.png" alt="Logo" class="logo">
+        <div class="logo">HARDFORCE</div>
+        <div class="search-box">
+            <input type="text" id="input-busca" placeholder="Pesquisar produtos..."
+                   onkeydown="if(event.key === 'Enter'){ event.preventDefault(); executarBusca(); }">
+            <button type="button" onclick="executarBusca()">🔍</button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li id="nav-auth"><a href="login.html">Login / Cadastro</a></li>
+            <li><a href="pedidos.html">Meus Pedidos</a></li>
+            <li>
+                <a href="#" class="carrinho-icone" onclick="abrirCarrinho(); return false;">
+                    🛒 <span id="contador-carrinho">0</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<div class="filtros-categoria" id="filtros-categoria"></div>
+
+<div class="vitrine" id="vitrine">
+    <p>Carregando produtos...</p>
+</div>
+
+<!-- ===================== MODAL: CARRINHO ===================== -->
+<div class="modal-overlay hidden" id="carrinho-modal">
+    <div class="modal-caixa">
+        <div class="modal-cabecalho">
+            <h2>Meu Carrinho</h2>
+            <button class="btn-fechar" onclick="fecharCarrinho()">✕</button>
+        </div>
+
+        <div id="carrinho-corpo" class="carrinho-corpo">
+            <p>Seu carrinho está vazio.</p>
+        </div>
+
+        <div class="cupom-area">
+            <input type="text" id="input-cupom" placeholder="Código do cupom">
+            <button onclick="aplicarCupom()">Aplicar</button>
+        </div>
+
+        <div id="carrinho-resumo" class="carrinho-resumo"></div>
+
+        <button class="btn-acessar" id="btn-finalizar" onclick="abrirPagamento()">Finalizar Pedido</button>
+    </div>
+</div>
+
+<!-- ===================== MODAL: PAGAMENTO ===================== -->
+<div class="modal-overlay hidden" id="pagamento-modal">
+    <div class="modal-caixa">
+        <div class="modal-cabecalho">
+            <h2>Pagamento</h2>
+            <button class="btn-fechar" onclick="fecharPagamento()">✕</button>
+        </div>
+
+        <form id="form-pagamento" onsubmit="confirmarPagamento(event)">
+            <div class="forma-pagamento-opcoes">
+                <label>
+                    <input type="radio" name="forma-pagamento" value="CARTAO_CREDITO" checked
+                           onchange="alternarCamposPagamento()">
+                    Cartão de Crédito
+                </label>
+                <label>
+                    <input type="radio" name="forma-pagamento" value="PIX"
+                           onchange="alternarCamposPagamento()">
+                    Pix
+                </label>
+            </div>
+
+            <div id="campos-cartao">
+                <div class="input-group">
+                    <label for="cartao-numero">Número do cartão (16 dígitos)</label>
+                    <input type="text" id="cartao-numero" maxlength="16" placeholder="0000000000000000">
+                </div>
+                <div class="input-group">
+                    <label for="cartao-cvv">CVV (3 dígitos)</label>
+                    <input type="text" id="cartao-cvv" maxlength="3" placeholder="000">
+                </div>
+                <div class="input-group">
+                    <label for="cartao-validade">Validade (MM/AA)</label>
+                    <input type="text" id="cartao-validade" maxlength="5" placeholder="MM/AA">
+                </div>
+            </div>
+
+            <button type="submit" class="btn-acessar">Confirmar Pagamento</button>
+        </form>
+    </div>
+</div>
+
+<!-- ===================== MODAL: CONFIRMAÇÃO ===================== -->
+<div class="modal-overlay hidden" id="confirmacao-modal">
+    <div class="modal-caixa">
+        <div class="modal-cabecalho">
+            <h2>Pedido Confirmado ✅</h2>
+            <button class="btn-fechar" onclick="fecharConfirmacao()">✕</button>
+        </div>
+        <div id="confirmacao-corpo"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

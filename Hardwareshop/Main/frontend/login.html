@@ -7,9 +7,7 @@
     <title>Acesso - Minha Loja</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .hidden {
-            display: none;
-        }
+        .hidden { display: none; }
     </style>
 </head>
 
@@ -17,24 +15,25 @@
 
 <div class="login-container">
 
+    <p id="mensagem-erro" class="mensagem-erro"></p>
+
     <!-- FORMULÁRIO DE LOGIN -->
-    <form class="login-form" id="form-login">
-        <a class="botao-retornar" href="index.html">Retornar a tela inicial</a>
+    <form class="login-form" id="form-login" onsubmit="fazerLogin(event)">
+        <a class="botao-retornar" href="index.html">← Retornar à tela inicial</a>
         <h2>Acesse sua Conta</h2>
         <p>Bem-vindo de volta!</p>
 
-
         <div class="input-group">
-            <label for="login-usuario">Email</label>
-            <input type="text" id="login-usuario" name="Login" placeholder="Digite o Email" required>
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" placeholder="Digite seu email" required>
         </div>
 
         <div class="input-group">
             <label for="login-senha">Senha</label>
-            <input type="password" id="login-senha" name="senha" placeholder="Digite sua senha" required>
+            <input type="password" id="login-senha" placeholder="Digite sua senha" required>
         </div>
 
-        <button type="submit" class="btn-acessar">Entrar</button>
+        <button type="submit" class="btn-acessar" id="btn-login">Entrar</button>
 
         <div class="login-footer">
             <p>Não tem uma conta? <a href="#" onclick="toggleForm()">Cadastre-se</a></p>
@@ -42,76 +41,128 @@
     </form>
 
     <!-- FORMULÁRIO DE CADASTRO -->
-    <form class="login-form hidden" id="form-cadastro">
+    <form class="login-form hidden" id="form-cadastro" onsubmit="fazerCadastro(event)">
         <h2>Crie sua Conta</h2>
         <p>Preencha os dados abaixo.</p>
 
         <div class="input-group">
-            <label for="cad-nome">Email do usuario</label>
-            <input type="text" id="cad-nome" name="nome" placeholder="Cadastre seu Email" required>
+            <label for="cad-nome">Nome Completo</label>
+            <input type="text" id="cad-nome" placeholder="Seu nome completo" required>
+        </div>
+
+        <div class="input-group">
+            <label for="cad-email">Email</label>
+            <input type="email" id="cad-email" placeholder="exemplo@email.com" required>
         </div>
 
         <div class="input-group">
             <label for="cad-senha">Senha</label>
-            <input type="password" id="cad-senha" name="senha" placeholder="Crie uma senha" required>
+            <input type="password" id="cad-senha" placeholder="Mínimo 6 caracteres" required minlength="6">
         </div>
 
-        <button type="submit" class="btn-acessar">Cadastrar</button>
+        <button type="submit" class="btn-acessar" id="btn-cadastro">Cadastrar</button>
 
         <div class="login-footer">
             <p>Já tem uma conta? <a href="#" onclick="toggleForm()">Faça Login</a></p>
+            <a href="index.html">← Voltar para a Loja</a>
         </div>
     </form>
-</div>
-
-<!-- FORMULÁRIO DE CADASTRO -->
-<form class="login-form hidden" id="form-cadastro">
-    <h2>Crie sua Conta</h2>
-    <p>Preencha os campos abaixo para se cadastrar.</p>
-
-    <div class="input-group">
-        <label for="nome-cad">Nome Completo</label>
-        <input type="text" id="nome-cad" name="nome" placeholder="Seu nome" required>
-    </div>
-
-    <div class="input-group">
-        <label for="email-cad">E-mail</label>
-        <input type="email" id="email-cad" name="email" placeholder="exemplo@email.com" required>
-    </div>
-
-    <div class="input-group">
-        <label for="senha-cad">Senha</label>
-        <input type="password" id="senha-cad" name="senha" placeholder="Crie uma senha" required>
-    </div>
-
-    <button type="submit" class="btn-acessar">Cadastrar</button>
-
-    <div class="login-footer">
-        <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
-        <p>Já tem uma conta? <a href="#" onclick="toggleForm()">Faça Login</a></p>
-        <a href="index.html" style="font-weight: bold; color: #7f8c8d;">← Voltar para a Loja</a>
-    </div>
-</form>
 
 </div>
 
 <script>
+
+    const API = "http://localhost:8080";
+
     function toggleForm() {
-        const loginForm = document.getElementById('form-login');
-        const cadastroForm = document.getElementById('form-cadastro');
-
-        // Inverte a classe 'hidden' entre os dois
-        loginForm.classList.toggle('hidden');
-        cadastroForm.classList.toggle('hidden');
+        document.getElementById("form-login").classList.toggle("hidden");
+        document.getElementById("form-cadastro").classList.toggle("hidden");
+        limparErro();
     }
+
+    function mostrarErro(mensagem) {
+        document.getElementById("mensagem-erro").textContent = mensagem;
+    }
+
+    function limparErro() {
+        document.getElementById("mensagem-erro").textContent = "";
+    }
+
+    async function fazerLogin(event) {
+        event.preventDefault();
+        limparErro();
+
+        const email = document.getElementById("login-email").value;
+        const senha = document.getElementById("login-senha").value;
+        const botao = document.getElementById("btn-login");
+
+        botao.disabled = true;
+        botao.textContent = "Entrando...";
+
+        try {
+            const resposta = await fetch(`${API}/usuarios/login`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: email, senha: senha })
+            });
+
+            const dados = await resposta.json();
+
+            if (!resposta.ok) {
+                mostrarErro(dados.erro || "Não foi possível entrar.");
+                return;
+            }
+
+            // guarda token + dados do usuário para o restante do site (em memória do navegador)
+            localStorage.setItem("hardforce_sessao", JSON.stringify(dados));
+            window.location.href = "index.html";
+        } catch (erro) {
+            mostrarErro("Não foi possível conectar ao servidor. Verifique se o backend está rodando em localhost:8080.");
+        } finally {
+            botao.disabled = false;
+            botao.textContent = "Entrar";
+        }
+    }
+
+    async function fazerCadastro(event) {
+        event.preventDefault();
+        limparErro();
+
+        const nome  = document.getElementById("cad-nome").value;
+        const email = document.getElementById("cad-email").value;
+        const senha = document.getElementById("cad-senha").value;
+        const botao = document.getElementById("btn-cadastro");
+
+        botao.disabled = true;
+        botao.textContent = "Cadastrando...";
+
+        try {
+            const resposta = await fetch(`${API}/usuarios/cadastro`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ nome: nome, email: email, senha: senha })
+            });
+
+            const dados = await resposta.json();
+
+            if (!resposta.ok) {
+                mostrarErro(dados.erro || "Não foi possível cadastrar.");
+                return;
+            }
+
+            toggleForm();
+            document.getElementById("login-email").value = email;
+            document.getElementById("form-cadastro").reset();
+            mostrarErro("Cadastro realizado! Agora faça login com seu e-mail e senha.");
+        } catch (erro) {
+            mostrarErro("Não foi possível conectar ao servidor. Verifique se o backend está rodando em localhost:8080.");
+        } finally {
+            botao.disabled = false;
+            botao.textContent = "Cadastrar";
+        }
+    }
+
 </script>
-<!-- ... seus formulários acima ... -->
-
-<script src="js/seu-arquivo-de-integracao.js"></script>
-</body>
-
-</html>
 
 </body>
-
 </html>
