@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso - Minha Loja</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="body-login">
+
+<div class="login-container">
+
+    <!-- FORMULÁRIO DE LOGIN -->
+    <form class="login-form" id="form-login">
+        <h2>Acesse sua Conta</h2>
+        <p>Bem-vindo de volta!</p>
+
+        <div class="input-group">
+            <label for="login-usuario">Login</label>
+            <input type="text" id="login-usuario" name="Login" placeholder="Digite o login" required>
+        </div>
+
+        <div class="input-group">
+            <label for="login-senha">Senha</label>
+            <input type="password" id="login-senha" name="senha" placeholder="Digite sua senha" required>
+        </div>
+
+        <button type="submit" class="btn-acessar">Entrar</button>
+
+        <div class="login-footer">
+            <p>Não tem uma conta? <a href="#" onclick="toggleForm()">Cadastre-se</a></p>
+        </div>
+    </form>
+
+    <!-- FORMULÁRIO DE CADASTRO -->
+    <form class="login-form hidden" id="form-cadastro">
+        <h2>Crie sua Conta</h2>
+        <p>Preencha os dados abaixo.</p>
+
+        <div class="input-group">
+            <label for="cad-nome">Login do usuario</label>
+            <input type="text" id="cad-nome" name="nome" placeholder="Cadastre seu login" required>
+        </div>
+
+        <div class="input-group">
+            <label for="cad-senha">Senha</label>
+            <input type="password" id="cad-senha" name="senha" placeholder="Crie uma senha" required>
+        </div>
+
+        <button type="submit" class="btn-acessar">Cadastrar</button>
+
+        <div class="login-footer">
+            <p>Já tem uma conta? <a href="#" onclick="toggleForm()">Faça Login</a></p>
+        </div>
+    </form>
+</div>
+
+<!-- FORMULÁRIO DE CADASTRO -->
+<form class="login-form hidden" id="form-cadastro">
+    <h2>Crie sua Conta</h2>
+    <p>Preencha os campos abaixo para se cadastrar.</p>
+
+    <div class="input-group">
+        <label for="nome-cad">Nome Completo</label>
+        <input type="text" id="nome-cad" name="nome" placeholder="Seu nome" required>
+    </div>
+
+    <div class="input-group">
+        <label for="email-cad">E-mail</label>
+        <input type="email" id="email-cad" name="email" placeholder="exemplo@email.com" required>
+    </div>
+
+    <div class="input-group">
+        <label for="senha-cad">Senha</label>
+        <input type="password" id="senha-cad" name="senha" placeholder="Crie uma senha" required>
+    </div>
+
+    <button type="submit" class="btn-acessar">Cadastrar</button>
+
+    <div class="login-footer">
+        <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
+        <p>Já tem uma conta? <a href="#" onclick="toggleForm()">Faça Login</a></p>
+        <a href="index.html" style="font-weight: bold; color: #7f8c8d;">← Voltar para a Loja</a>
+    </div>
+</form>
+
+</div>
+
+<script>
+    function toggleForm() {
+        const loginForm = document.getElementById('form-login');
+        const cadastroForm = document.getElementById('form-cadastro');
+
+        // Inverte a classe 'hidden' entre os dois
+        loginForm.classList.toggle('hidden');
+        cadastroForm.classList.toggle('hidden');
+    }
+</script>
+<!-- ... seus formulários acima ... -->
+
+<script src="js/seu-arquivo-de-integracao.js"></script>
+</body>
+
+</html>
+
+</body>
+
+</html>
