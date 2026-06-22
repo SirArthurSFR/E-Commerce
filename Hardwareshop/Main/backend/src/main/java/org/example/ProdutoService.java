@@ -57,8 +57,22 @@ public class ProdutoService {
                 "AMD AM4, mATX, DDR4, Preto", CategoriaProduto.PLACA_MAE);
         cadastrarInicial("Placa-Mãe Gigabyte A520M K V2", 359.99, 3, "imagens/Placa-Mãe ASUS TUF GAMING A520M-PLUS II.webp",
                 "Rev. 1.0, AMD, Micro ATX, DDR4, Preto", CategoriaProduto.PLACA_MAE);
-        cadastrarInicial("Placa-Mãe MSI B760M Gaming Plus", 759.99, 25, "imagens/Placa-Mãe Gigabyte A520M K V2.webp",
+        cadastrarInicial("Placa-Mãe MSI B760M Gaming Plus", 759.99, 25, "imagens/Placa-Mãe MSI B760M Gaming Plus.webp",
                 "Intel LGA 1700, M-ATX, DDR5, Wi-Fi, Preto", CategoriaProduto.PLACA_MAE);
+        cadastrarInicial("Processador AMD Ryzen 7 7700X", 1649.99, 16, "imagens/Processador AMD Ryzen 7 7700X.webp",
+                "5.4GHz Max Turbo, Cache 40MB, AM5, 8 Núcleos, Vídeo Integrado", CategoriaProduto.PROCESSADOR);
+        cadastrarInicial("Processador AMD Ryzen 5 7600X", 1149.98, 23, "imagens/Processador AMD Ryzen 5 7600X.webp",
+                "5.3GHz Max Turbo, Cache 38MB, AM5, 6 Núcleos, Vídeo Integrado", CategoriaProduto.PROCESSADOR);
+        cadastrarInicial("Processador AMD Ryzen 7 9800X3D", 2499.00, 2, "imagens/Processador AMD Ryzen 7 9800X3D.webp",
+                "Cache 8MB, 8 Núcleos, 16 Threads, AM5 ", CategoriaProduto.PROCESSADOR);
+        cadastrarInicial("Processador AMD Ryzen 3 3200G", 499.99, 8, "imagens/Processador AMD Ryzen 3 3200G.webp",
+                "3.6GHz (4GHz Max Turbo), Cache 4MB, Quad Core, 4 Threads, AM4", CategoriaProduto.PROCESSADOR);
+        cadastrarInicial("Processador Intel Core i5-12400F", 899.90, 17, "imagens/Processador Intel Core i5-12400F.webp",
+                " 2.5GHz (4.4GHz Max Turbo), Cache 18MB, LGA 1700", CategoriaProduto.PROCESSADOR);
+        cadastrarInicial("Processador Intel Core I5 14400f", 1199.00, 6, "imagens/Processador Intel Core I5 14400f.webp",
+                "3.5 Ghz (4.7 Ghz Turbo), Cache 20mb, 10 Núcleos, 16 Threads, Lga1700, S/ Vídeo Integrado", CategoriaProduto.PROCESSADOR);
+        cadastrarInicial("Processador Intel Core i9-14900KF", 2899.99, 18, "imagens/Processador Intel Core i9-14900KF.webp",
+                "6GHz Max Turbo, Cache 36MB, 24 Núcleos, 32 Threads, LGA1700", CategoriaProduto.PROCESSADOR);
     }
 
     private void cadastrarInicial(String nome, double preco, int estoque, String imagemUrl,
