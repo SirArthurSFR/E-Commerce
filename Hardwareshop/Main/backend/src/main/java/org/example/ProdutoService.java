@@ -73,6 +73,32 @@ public class ProdutoService {
                 "3.5 Ghz (4.7 Ghz Turbo), Cache 20mb, 10 Núcleos, 16 Threads, Lga1700, S/ Vídeo Integrado", CategoriaProduto.PROCESSADOR);
         cadastrarInicial("Processador Intel Core i9-14900KF", 2899.99, 18, "imagens/Processador Intel Core i9-14900KF.webp",
                 "6GHz Max Turbo, Cache 36MB, 24 Núcleos, 32 Threads, LGA1700", CategoriaProduto.PROCESSADOR);
+        cadastrarInicial("Memória RAM Husky Impulse, 8GB", 409.99, 12, "imagens/Memória RAM Husky Impulse, 8GB.webp",
+                "3200MHz, DDR4, CL22, Preto", CategoriaProduto.MEMORIA_RAM);
+        cadastrarInicial("Memória RAM XPG Lancer, RGB, 32GB (2x16GB)", 3499.99, 3, "imagens/Memória RAM XPG Lancer, RGB, 32GB (2x16GB).webp",
+                "6000MHz, DDR5, CL30, Preto", CategoriaProduto.MEMORIA_RAM);
+        cadastrarInicial("Memória RAM XPG Lancer Blade, 16GB", 1799.99, 5, "imagens/Memória RAM XPG Lancer Blade, 16GB.webp",
+                "RGB, DDR5, 6000MHz, Single Tray, CL48, Preto", CategoriaProduto.MEMORIA_RAM);
+        cadastrarInicial("SSD, Nvme, Winmemory, 256gb", 354.99, 7, "imagens/SSD, Nvme, Winmemory, 256gb.webp",
+                "M.2 2280, PCie 3.0, Leitura 2500mb/s, Gravacao 2100mb/s", CategoriaProduto.SSD);
+        cadastrarInicial("SSD Kingston NV3, 500 GB", 789.99, 19, "imagens/SSD Kingston NV3, 500 GB.webp",
+                " M.2 2280, PCIe 4.0 x4, NVMe, Leitura: 5000 MB/s, Gravação: 3000 MB/s, Azul", CategoriaProduto.SSD);
+        cadastrarInicial("SSD Rise Mode Gamer M.2 Z Series, 512GB", 569.99, 8, "imagens/SSD Rise Mode Gamer M.2 Z Series, 512GB.webp",
+                " M.2, NVMe, Leitura: 3100MB/s e Gravação: 1800MB/s", CategoriaProduto.SSD);
+        cadastrarInicial("Fonte Gamer Atx Fortrek Black Hawk 650w", 322.15, 4, "imagens/Fonte Gamer Atx Fortrek Black Hawk 650w.webp",
+                " 650w 80 Plus Bronze Pfc Ativo", CategoriaProduto.FONTE);
+        cadastrarInicial("Fonte Gamer Atx Aerocool Stealth Vx-600 600w", 233.75, 6, "imagens/Fonte Gamer Atx Aerocool Stealth Vx-600 600w.webp",
+                "600w Bivolt", CategoriaProduto.FONTE);
+        cadastrarInicial("Fonte Gamer C3tech, 700W", 288.15,14, "imagens/Fonte Gamer C3tech, 700W.webp",
+                "80 Plus Bronze, Pfc Ativo, ATX", CategoriaProduto.FONTE);
+        cadastrarInicial("Fonte Cooler Master MWE Gold 850 V3, 850W", 359.99, 20, "imagens/Fonte Cooler Master MWE Gold 850 V3, 850W.webp",
+        "80 Plus Ouro, ATX 3.1, PFC Ativo, Preto", CategoriaProduto.FONTE);
+        cadastrarInicial("Gabinete Gamer Rise Mode Galaxy Glass M Mini", 149.99, 15, "imagens/Gabinete Gamer Rise Mode Galaxy Glass M Mini preto.webp",
+                "M-ATX, Lateral e Frontal em Vidro Temperado, Sem FANs, Preto", CategoriaProduto.GABINETE);
+        cadastrarInicial("Gabinete Gamer Rise Mode Glass 06X", 99.99, 6, "imagens/Gabinete Gamer Rise Mode Glass 06X.webp",
+                "Mid Tower, ATX, Lateral em Vidro Fumê e Frontal em Vidro Temperado, Sem FANs, Preto",  CategoriaProduto.GABINETE);
+        cadastrarInicial("Gabinete Gamer Rise Mode Galaxy Glass M Mini branco", 149.99, 9, "imagens/Gabinete Gamer Rise Mode Galaxy Glass M Mini branco.webp",
+                "M-ATX, Lateral e Frontal em Vidro Temperado, Sem FANs, Branco", CategoriaProduto.GABINETE);
     }
 
     private void cadastrarInicial(String nome, double preco, int estoque, String imagemUrl,
