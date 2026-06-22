@@ -15,6 +15,9 @@ public class ProdutoService {
     private final List<Produto> produtos = new ArrayList<>();
     private final AtomicInteger proximoId = new AtomicInteger(1);
 
+    // pra voces cadastrarem novos produtos, só chamar esse metodo cadastrarInicial, então colocar o produto nessa ordem:
+    // nome > preço > estoque > url da imagem > especificações > categoria do produto
+
     public ProdutoService() {
         cadastrarInicial("GeForce RTX 5070 Ti GAMING OC 16G", 6899.90, 5,
                 "imagens/RTX 5070 TI.png", "16GB VRAM", CategoriaProduto.PLACA_DE_VIDEO);
